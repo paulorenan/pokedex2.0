@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Home from './pages/Home';
+import PokeInfo from './pages/PokeInfo';
 import './App.css';
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
     <BrowserRouter>
       <Switch>
         <Route exact path="/" component={Home} />
+        <Route path="/pokemon/:id" component={PokeInfo} />
       </Switch>
     </BrowserRouter>
   );

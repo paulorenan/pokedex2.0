@@ -1,0 +1,18 @@
+.pokeBusca {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pokeCard {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.proxButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

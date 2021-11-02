@@ -1,0 +1,15 @@
+.cardContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+
+.typeCard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imageCard img{
+  width: 120px;
+}

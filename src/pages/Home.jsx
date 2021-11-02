@@ -1,12 +1,16 @@
 import React, {useState, useEffect} from 'react'
 import { getPokeNome, getPoke } from '../services/pokeapi'
 import PokemonCard from '../components/PokemonCard'
+import { Link } from 'react-router-dom'
+import Header from '../components/Header'
+import '../styles/Home.css'
 
 function Home() {
   const [pokemonsName, setPokemonsName] = useState([])
   const [pokemons, setPokemons] = useState([])
   const [next, setNext] = useState('')
   const [loading, setLoading] = useState(true)
+  const [nameInput, setNameInput] = useState('')
 
   useEffect(() => {
     async function loadPokemonsName() {
@@ -34,22 +38,27 @@ function Home() {
   }
 
   return (
-    <div>
-      <input type="text" placeholder="Digite o nome do pokemon" list="pokeName"/>
+    <div className="home">
+      <Header />
+      <div className="pokeBusca">
+        <input type="text" placeholder="Digite o nome do pokemon" list="pokeName" onChange={ (e) => setNameInput(e.target.value)} />
+        <Link to={`/pokemon/${nameInput}`}><button>Buscar</button></Link>
       <datalist id="pokeName">
         {pokemonsName.map(pokemon => (
           <option key={pokemon} value={pokemon} />
         ))}
       </datalist>
-      <div>
-        {/* <PokemonCard poke={pokemons[0]} /> */}
+      </div>
+      <div className="pokeCard">
         {loading ? null : pokemons.map(pokemon => (
           <PokemonCard key={pokemon.name} poke={pokemon} />
         ))}
       </div>
-      <button onClick={pegarPokemons}>Carregar mais</button>
+      <div className="proxButton">
+        <button onClick={pegarPokemons}>Carregar mais</button>
+      </div>
     </div>
   )
 }
 
-export default Home
+export default Home;
