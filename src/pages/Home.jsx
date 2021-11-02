@@ -3,9 +3,10 @@ import { getPokeNome, getPoke } from '../services/pokeapi'
 import PokemonCard from '../components/PokemonCard'
 import { Link } from 'react-router-dom'
 import Header from '../components/Header'
+import Loading from '../components/Loading'
 import '../styles/Home.css'
 
-function Home() {
+function Home(props) {
   const [pokemonsName, setPokemonsName] = useState([])
   const [pokemons, setPokemons] = useState([])
   const [next, setNext] = useState('')
@@ -37,20 +38,26 @@ function Home() {
     setNext(response.next)
   }
 
+  const handleSearch = async (e) => {
+    e.preventDefault()
+    const {history} = props
+    history.push(`/pokemon/${nameInput}`)
+  }
+
   return (
     <div className="home">
       <Header />
-      <div className="pokeBusca">
+      <form className="pokeBusca" onSubmit={handleSearch}>
         <input type="text" placeholder="Digite o nome do pokemon" list="pokeName" onChange={ (e) => setNameInput(e.target.value)} />
-        <Link to={`/pokemon/${nameInput}`}><button>Buscar</button></Link>
+        <Link to={`/pokemon/${nameInput}`}><button className="searchButton">Pesquisar</button></Link>
       <datalist id="pokeName">
         {pokemonsName.map(pokemon => (
           <option key={pokemon} value={pokemon} />
         ))}
       </datalist>
-      </div>
+      </form>
       <div className="pokeCard">
-        {loading ? null : pokemons.map(pokemon => (
+        {loading ? <Loading /> : pokemons.map(pokemon => (
           <PokemonCard key={pokemon.name} poke={pokemon} />
         ))}
       </div>

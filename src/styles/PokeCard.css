@@ -2,9 +2,28 @@
   display: flex;
   flex-direction: column;
   margin: 10px;
+  background-image: linear-gradient(to bottom, red, white);
+  border: 1px solid gray;
+  border-radius: 10px;
+  color: black;
+  text-decoration: none;
+  position: relative;
+  transition: 0.4s;
+}
+
+.cardContainer:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
 }
 
 .typeCard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.imageCard {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -12,4 +31,102 @@
 
 .imageCard img{
   width: 120px;
+}
+
+.infoCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  font-size: 19px;
+}
+
+.normal {
+  background-color: #A4ACAF;
+}
+
+.grass {
+  background-color: #9BCC50;
+}
+
+.poison {
+  background-color: #B97FC9;
+  color: white;
+}
+
+.bug {
+  background-color: #729F3F;
+  color: white;
+}
+
+.fire {
+  background-color: #FD7D24;
+  color: white;
+}
+
+.dark {
+  background-color: #616161;
+  color: white;
+}
+
+.dragon {
+  background-image: linear-gradient(to bottom, #53A4CF, #F16E57);
+  color: white;
+}
+
+.electric {
+  background-color: #EED535;
+}
+
+.fairy {
+  background-color: #FDB9E9;
+}
+
+.fighting {
+  background-color: #D56723;
+  color: white;
+}
+
+.flying {
+  background-image: linear-gradient(to bottom, #3DC7EF, #BDB9B8);
+}
+
+.ghost {
+  background-color: #7B62A3;
+  color: white;
+}
+
+.ground {
+  background-image: linear-gradient(to bottom, #F7DE3F, #AB9842);
+}
+
+.ice {
+  background-color: #51C4E7;
+}
+
+.psychic {
+  background-color: #F366B9;
+  color: white;
+}
+
+.rock {
+  background-color: #A38C21;
+  color: white;
+}
+
+.steel {
+  background-color: #9EB7B8;
+}
+
+.water {
+  background-color: #4592C4;
+  color: white;
+}
+
+.tipo {
+  padding: 8px;
+  margin: 5px;
+  border-radius: 10px;
+  border: 1px solid gray;
 }

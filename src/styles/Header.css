@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 8px solid black;
+  background-color: red;
+  color: white;
+  padding: 20px;
+  height: 80px;
+  margin-bottom: 40px;
+}
+
+#ball {
+  border: 8px solid black;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  position: absolute;
+  top: 90px;
+  left: calc(50% - 25px);
+  z-index: 1;
+  background-color: white;
+}

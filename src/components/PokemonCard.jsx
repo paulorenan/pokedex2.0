@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { getPoke } from '../services/pokeapi'
+import Loading from './Loading'
 import '../styles/PokeCard.css'
 
 function PokemonCard(props) {
@@ -29,7 +30,7 @@ function PokemonCard(props) {
   const renderPokemon = () => {
     console.log(pokemon);
     return (
-      <div className="cardContainer">
+      <Link to={`/pokemon/${pokemon.id}`} className="cardContainer">
         <div className="imageCard">
           <img src={pokemon.sprites.front_default} alt="pokemon" />
         </div>
@@ -39,20 +40,19 @@ function PokemonCard(props) {
         </div>
         <div className="typeCard">
           {pokemon.types.map((type) => (
-            <p key={type.type.name}>{capitalize(type.type.name.split("-"))}</p>
+            <div key={type.type.name} className={`${type.type.name} tipo`}>
+              <p>{capitalize(type.type.name.split("-"))}</p>
+            </div>
           ))}
         </div>
-        <div className="proxButton">
-        <Link to={`/pokemon/${pokemon.id}`}><button>Detalhes</button></Link>
-        </div>
-      </div>
+      </Link>
     )
   }
 
 
   return (
     <div>
-    {loading ? <p>Loading...</p> : renderPokemon()}
+    {loading ? <Loading /> : renderPokemon()}
     </div>
   )
 }
