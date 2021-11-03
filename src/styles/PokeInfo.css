@@ -264,3 +264,13 @@ left: 0;
 .lado {
   margin-top: 10px;
 }
+
+.buttonCont {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 20px;
+  text-decoration: none;
+}

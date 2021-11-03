@@ -202,6 +202,9 @@ function PokeInfo(props) {
     <div>
       <Header />
       {loading ? <p>Loading...</p> : renderPokemon()}
+      <div className="buttonCont">
+          <Link to={'/'} className="proxButton"><button>Voltar ao inicio</button></Link>
+        </div>
     </div>
   )
 }
