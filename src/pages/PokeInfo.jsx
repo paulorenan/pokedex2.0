@@ -1,10 +1,17 @@
 import React, {useState, useEffect} from 'react'
-import {getPokeUrl} from '../services/pokeapi'
+import {getPokeUrl, getPokeNome} from '../services/pokeapi'
+import { Link } from 'react-router-dom'
 import Header from '../components/Header'
+import Ability from '../components/Ability'
+import Moves from '../components/Moves'
+import '../styles/PokeInfo.css'
 
 function PokeInfo(props) {
   const [pokemon, setPokemon] = useState({})
   const [loading, setLoading] = useState(true)
+  const [pokemonsName, setPokemonsName] = useState([])
+  const [nameInput, setNameInput] = useState('')
+  const [click, setClick] = useState(true)
   const { match: { params: { id } } } = props
 
   useEffect(() => {
@@ -16,134 +23,176 @@ function PokeInfo(props) {
     fetchData()
   }, [id])
 
+  useEffect(() => {
+    async function fetchData() {
+      const pokemonsName = await getPokeNome()
+      setPokemonsName(pokemonsName)
+    }
+    fetchData()
+  }, [])
+
   function capitalize(string) {
-    console.log(string);
     const maiuscula = string.map((palavra)  => (
       palavra.charAt(0).toUpperCase() + palavra.slice(1)
       ))
     return maiuscula.join(' ')
   }
 
+  const handleSearch = async (e) => {
+    e.preventDefault()
+    const {history} = props
+    history.push(`/pokemon/${nameInput}`)
+  }
+
   const renderPokemon = () => {
     return (
-      <div className="pokemon-info">
-        <div>
-          <h1>{`Pokemon nº: ${pokemon.id}`}</h1>
-          <h2>{capitalize(pokemon.name.split('-'))}</h2>
-        </div>
-        <div>
-          <img src={pokemon.sprites.front_default} alt={pokemon.name} />
-        </div>
-        <div>
-          {pokemon.types.map(type => (
-            <span key={type.type.name}>{capitalize(type.type.name.split('-'))}</span>
+      <div>
+        <form className="pokeBusca" onSubmit={handleSearch}>
+          {pokemon.id !== 1 && <Link to={`/pokemon/${pokemon.id - 1}`}> <button className="but1"><span>Anterior</span></button></Link>}
+          <input type="text" placeholder="Digite o nome do pokemon" list="pokeName" onChange={ (e) => setNameInput(e.target.value)} />
+          <Link to={`/pokemon/${nameInput}`}><button className="searchButton">Pesquisar</button></Link>
+          {pokemon.id !== 898 && <Link to={`/pokemon/${pokemon.id + 1}`}><button className="but2"><span>Próximo</span></button></Link>}
+        <datalist id="pokeName">
+          {pokemonsName.map(pokemon => (
+            <option key={pokemon} value={pokemon} />
           ))}
-        </div>
-        <div>
-          <h3>Habilidades</h3>
-          {pokemon.abilities.map(ability => (
-            <span key={ability.ability.name}>{capitalize(ability.ability.name.split('-'))}</span>
-          ))}
-        </div>
-        <div>
-          <h3>Stats</h3>
-            <div>
-              <label>HP</label>
-              <meter min="0" max="255" value={pokemon.stats[0].base_stat}></meter>
-              <label>Attack</label>
-              <meter min="0" max="190" value={pokemon.stats[1].base_stat}></meter>
-              <label>Defense</label>
-              <meter min="0" max="230" value={pokemon.stats[2].base_stat}></meter>
-              <label>Special Attack</label>
-              <meter min="0" max="194" value={pokemon.stats[3].base_stat}></meter>
-              <label>Special Defense</label>
-              <meter min="0" max="230" value={pokemon.stats[4].base_stat}></meter>
-              <label>Speed</label>
-              <meter min="0" max="180" value={pokemon.stats[5].base_stat}></meter>
-            </div>
-        </div>
-        <details>
-          <summary>Ataques</summary>
-          {pokemon.moves.map(move => (
-            <span key={move.move.name}>{capitalize(move.move.name.split('-'))}</span>
-          ))}
-        </details>
-        <div>
-          <h3>Sprites</h3>
+        </datalist>
+        </form>
+        <div className="pokemon-info">
+          <div className="pokeName">
+            <h1>{`Pokemon nº: ${pokemon.id}`}</h1>
+            <h2>{capitalize(pokemon.name.split('-'))}</h2>
+          </div>
           <div>
-            <div>
-              <div>
-                <span>Frente</span>
-              </div>
-              <div>
-              <img src={pokemon.sprites.front_default} alt={pokemon.name} />
-              </div>
+            <img src={pokemon.sprites.front_default} alt={pokemon.name} className="pokImg"/>
+          </div>
+          <div>
+            {pokemon.types.map(type => (
+              <span key={type.type.name} className={`${type.type.name} tipo`}>{capitalize(type.type.name.split('-'))}</span>
+            ))}
+          </div>
+          <div className="statsAbility">
+            <div className="ability">
+              <h3>Habilidades</h3>
+              {pokemon.abilities.map(ability => (
+                <Ability key={ability.ability.name} ability={ability} />
+              ))}
             </div>
-            <div>
-              <div>
-                <span>Costas</span>
-              </div>
-              <div>
-              <img src={pokemon.sprites.back_default} alt={pokemon.name} />
+            <div className="stats">
+              <h3>Stats</h3>
+              <div className="statsDiv">
+                <div className="points">
+                <label>HP</label>
+                <meter min="0" max="255" value={pokemon.stats[0].base_stat}></meter>
+                </div>
+                <div className="points">
+                  <label>Attack</label>
+                  <meter min="0" max="190" value={pokemon.stats[1].base_stat}></meter>
+                </div>
+                <div className="points">
+                  <label>Defense</label>
+                  <meter min="0" max="230" value={pokemon.stats[2].base_stat}></meter>
+                </div>
+                <div className="points">
+                  <label>Special Attack</label>
+                  <meter min="0" max="194" value={pokemon.stats[3].base_stat}></meter>
+                </div>
+                <div className="points">
+                  <label>Special Defense</label>
+                  <meter min="0" max="230" value={pokemon.stats[4].base_stat}></meter>
+                </div>
+                <div className="points">
+                  <label>Speed</label>
+                  <meter min="0" max="180" value={pokemon.stats[5].base_stat}></meter>
+                </div>
               </div>
             </div>
           </div>
-          {pokemon.sprites.back_female != null && 
-            <div>
-              <div>
-                <div>
-                  <span>{'Frente (Fêmea)'}</span>
+          <details className="moveCont">
+            <summary className="cont1" onClick={ () => setClick(!click) }><h3>{click ? '► Ataques' : '▼ Ataques'}</h3></summary>
+            <div className="cont2">
+              {pokemon.moves.map(moves => (
+                <Moves key={moves.move.name} moves={moves} />
+              ))}
+            </div>
+          </details>
+          <div className="imgCont">
+            <h3>Sprites</h3>
+            <div className="img1">
+              <div className="img2">
+                <div className="nomePok">
+                  <p className="lado">Frente</p>
                 </div>
                 <div>
-                  <img src={pokemon.sprites.front_female} alt={pokemon.name} />
+                <img src={pokemon.sprites.front_default} alt={pokemon.name} />
                 </div>
               </div>
-              <div>
-                <div>
-                  <span>{"Costas (Fêmea)"}</span>
+              <div className="img2">
+                <div className="nomePok">
+                  <p className="lado">Costas</p>
                 </div>
                 <div>
-                  <img src={pokemon.sprites.back_female} alt={pokemon.name} />
+                <img src={pokemon.sprites.back_default} alt={pokemon.name} />
                 </div>
-              </div>
-          </div> }
-          <div>
-            <div>
-              <div>
-                <span>{"Frente (Shiny)"}</span>
-              </div>
-              <div>
-              <img src={pokemon.sprites.front_shiny} alt={pokemon.name} />
               </div>
             </div>
-            <div>
-              <div>
-                <span>{"Costas (Shiny)"}</span>
+            {pokemon.sprites.back_female != null && 
+              <div className="img1">
+                <div className="img2">
+                  <div className="nomePok">
+                    <p className="lado">{'Frente (Fêmea)'}</p>
+                  </div>
+                  <div>
+                    <img src={pokemon.sprites.front_female} alt={pokemon.name} />
+                  </div>
+                </div>
+                <div className="img2">
+                  <div className="nomePok">
+                    <p className="lado">{"Costas (Fêmea)"}</p>
+                  </div>
+                  <div>
+                    <img src={pokemon.sprites.back_female} alt={pokemon.name} />
+                  </div>
+                </div>
+            </div> }
+            <div className="img1">
+              <div className="img2">
+                <div className="nomePok">
+                  <p className="lado">{"Frente (Shiny)"}</p>
+                </div>
+                <div>
+                <img src={pokemon.sprites.front_shiny} alt={pokemon.name} />
+                </div>
               </div>
-              <div>
-              <img src={pokemon.sprites.back_shiny} alt={pokemon.name} />
+              <div className="img2">
+                <div className="nomePok">
+                  <p className="lado">{"Costas (Shiny)"}</p>
+                </div>
+                <div>
+                <img src={pokemon.sprites.back_shiny} alt={pokemon.name} />
+                </div>
               </div>
             </div>
+            {pokemon.sprites.back_shiny_female != null && 
+              <div className="img1">
+                <div className="img2">
+                  <div className="nomePok">
+                    <p className="lado">{'Frente (Fêmea Shiny)'}</p>
+                  </div>
+                  <div>
+                    <img src={pokemon.sprites.front_shiny_female} alt={pokemon.name} />
+                  </div>
+                </div>
+                <div className="img2">
+                  <div className="nomePok">
+                    <p className="lado">{"Costas (Fêmea Shiny)"}</p>
+                  </div>
+                  <div>
+                    <img src={pokemon.sprites.back_shiny_female} alt={pokemon.name} />
+                  </div>
+                </div>
+            </div> }
           </div>
-          {pokemon.sprites.back_shiny_female != null && 
-            <div>
-              <div>
-                <div>
-                  <span>{'Frente (Fêmea Shiny)'}</span>
-                </div>
-                <div>
-                  <img src={pokemon.sprites.front_shiny_female} alt={pokemon.name} />
-                </div>
-              </div>
-              <div>
-                <div>
-                  <span>{"Costas (Fêmea Shiny)"}</span>
-                </div>
-                <div>
-                  <img src={pokemon.sprites.back_shiny_female} alt={pokemon.name} />
-                </div>
-              </div>
-          </div> }
         </div>
       </div>
     )
@@ -153,6 +202,9 @@ function PokeInfo(props) {
     <div>
       <Header />
       {loading ? <p>Loading...</p> : renderPokemon()}
+      <div className="buttonCont">
+          <Link to={'/'} className="proxButton"><button>Voltar ao inicio</button></Link>
+        </div>
     </div>
   )
 }
