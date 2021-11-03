@@ -43,26 +43,36 @@
 }
 
 .searchButton {
-  font-size: 17px;
-  background-color: white;
-  border: 1px solid #6C757D;
-  color: #6C757D;
-  border-radius: 5px;
-  padding: 10px;
-  padding-left: 15px;
-  padding-right: 15px;
-  transition: 0.2s;
+  position: relative;
+  display: inline-block;
+  margin: 15px;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 18px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  color: red;
+  background: transparent;
   cursor: pointer;
-  margin-left: 10px;
+  transition: ease-out 0.5s;
+  border-radius: 30px;
+  border: 2px solid red;
+  border-radius: 10px;
+  box-shadow: inset 0 0 0 0 red;
 }
 
 .searchButton:hover {
-  color: #fff;
-  background-color: #6c757d;
-  border-color: #6c757d;
+  color: white;
+  box-shadow: inset 0 -100px 0 0 red
 }
 
-.pokeBusca, input {
-  padding: 10px;
-  margin-right: 10px;
+.searchButton:active {
+  transform: scale(0.2);
+}
+
+.pokeBusca input {
+  padding: 12px;
+  margin: 10px;
+  border: 2px solid red;
+  border-radius: 10px;
 }

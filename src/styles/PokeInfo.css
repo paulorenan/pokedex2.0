@@ -1,0 +1,146 @@
+.but1 {
+  display: inline-block;
+  border-radius: 10px;
+  background-color: red;
+  border: 1px solid #e74c3c;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 17px;
+  padding: 10px;
+  width: 130px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 10px;
+}
+
+.but1 span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.but1 span:after {
+content: '«';
+position: absolute;
+opacity: 0;
+top: 0;
+left: -15px;
+transition: 0.5s;
+}
+
+.but1:hover span {
+padding-left: 15px;
+}
+
+.but1:hover span:after {
+opacity: 1;
+left: 0;
+}
+
+.but2 {
+  display: inline-block;
+  border-radius: 10px;
+  background-color: red;
+  border: 1px solid #e74c3c;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 17px;
+  padding: 10px;
+  width: 130px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 10px;
+}
+
+.but2 span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.but2 span:after {
+  content: '»';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -15px;
+  transition: 0.5s;
+}
+
+.but2:hover span {
+  padding-right: 15px;
+}
+
+.but2:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.pokemon-info, .pokeName, .ability {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.pokeName h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.pokImg {
+  width: 200px;
+}
+
+.ability {
+  margin: 30px;
+}
+
+.ability h3, .ability span{
+  border: 1px solid black;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+}
+
+.ability h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.statsAbility {
+  display: flex;
+  align-items: flex-start;
+}
+
+.stats {
+  margin: 30px;
+}
+
+.stats h3 {
+  border: 1px solid black;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.stats, .statsDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.points {
+  display: flex;
+  border: black 1px solid;
+  width: 100%;
+  justify-content: space-between;
+  padding: 10px;
+}

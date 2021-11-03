@@ -9,6 +9,7 @@
   text-decoration: none;
   position: relative;
   transition: 0.4s;
+  width: 200px;
 }
 
 .cardContainer:hover {
