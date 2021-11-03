@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import { getPoke } from '../services/pokeapi.js'
+import Loading from './Loading.jsx'
 
 function Ability(props) {
   const { ability } = props.ability
@@ -14,7 +15,6 @@ function Ability(props) {
       setLoading(false)
     }
     fetchData()
-    console.log(pokeAbility);
   }, [ability.url])
 
   function capitalize(string) {
@@ -32,7 +32,7 @@ function Ability(props) {
 
   return (
     <div>
-      {!loading && 
+      {loading ? <Loading /> : 
       <details>
         <summary>{capitalize(ability.name.split('-'))}</summary>
         <p>{filtrarAbilities(pokeAbility)}</p>

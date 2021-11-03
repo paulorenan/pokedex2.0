@@ -3,6 +3,7 @@ import {getPokeUrl, getPokeNome} from '../services/pokeapi'
 import { Link } from 'react-router-dom'
 import Header from '../components/Header'
 import Ability from '../components/Ability'
+import Moves from '../components/Moves'
 import '../styles/PokeInfo.css'
 
 function PokeInfo(props) {
@@ -106,11 +107,13 @@ function PokeInfo(props) {
               </div>
             </div>
           </div>
-          <details>
-            <summary>Ataques</summary>
-            {pokemon.moves.map(move => (
-              <span key={move.move.name}>{capitalize(move.move.name.split('-'))}</span>
-            ))}
+          <details className="moveCont">
+            <summary className="cont1">Ataques</summary>
+            <div className="cont2">
+              {pokemon.moves.map(moves => (
+                <Moves key={moves.move.name} moves={moves} />
+              ))}
+            </div>
           </details>
           <div>
             <h3>Sprites</h3>

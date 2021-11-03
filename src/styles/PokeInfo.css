@@ -97,14 +97,22 @@ left: 0;
 }
 
 .ability {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
   margin: 30px;
+  width: 200px;
 }
 
-.ability h3, .ability span{
+.ability h3, .ability div{
   border: 1px solid black;
   width: 100%;
   text-align: center;
   padding: 10px;
+}
+
+.ability div details summary {
+  cursor: pointer;
 }
 
 .ability h3 {
@@ -143,4 +151,65 @@ left: 0;
   width: 100%;
   justify-content: space-between;
   padding: 10px;
+}
+
+.cont1 {
+  cursor: pointer;
+  padding: 10px;
+  text-align: center;
+  border: black 1px solid;
+}
+
+.cont2 {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
+  justify-content: center;
+  text-align: center;
+}
+
+.cont3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.cont4 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  width: 200px;
+  text-align: center;
+}
+
+.caso2 {
+  cursor: pointer;
+  padding: 10px;
+  border: black 1px solid;
+}
+
+.caso1 {
+  cursor: pointer;
+  padding: 10px;
+  border: black 1px solid;
+  border-bottom: none;
+}
+
+.cont5 {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 10px;
+  border: black 1px solid;
+  border-top: none;
 }
