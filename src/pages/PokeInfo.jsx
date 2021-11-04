@@ -1,16 +1,19 @@
 import React, {useState, useEffect} from 'react'
-import {getPokeUrl, getPokeNome} from '../services/pokeapi'
+import {getPokeUrl, getPokeNome, getPoke} from '../services/pokeapi'
 import { Link } from 'react-router-dom'
 import Header from '../components/Header'
 import Ability from '../components/Ability'
 import Moves from '../components/Moves'
 import Loading from '../components/Loading'
+import Evolution from '../components/Evolution'
 import '../styles/PokeInfo.css'
 
 function PokeInfo(props) {
   const [pokemon, setPokemon] = useState({})
   const [loading, setLoading] = useState(true)
+  const [loadinSp, setLoadingSp] = useState(true)
   const [pokemonsName, setPokemonsName] = useState([])
+  const [pokeSpecie, setPokeSpecie] = useState({})
   const [nameInput, setNameInput] = useState('')
   const [click, setClick] = useState(true)
   const { match: { params: { id } } } = props
@@ -37,6 +40,19 @@ function PokeInfo(props) {
     }
     fetchData()
   }, [])
+
+  useEffect(() => {
+    async function fetchData() {
+      setLoadingSp(true)
+      const pokeSpecie = await getPoke(pokemon.species.url)
+      setPokeSpecie(pokeSpecie)
+      console.log(pokeSpecie);
+      setLoadingSp(false)
+    }
+    if (loading === false) {
+      fetchData()
+    }
+  }, [pokemon, loading])
 
   function capitalize(string) {
     const maiuscula = string.map((palavra)  => (
@@ -124,6 +140,9 @@ function PokeInfo(props) {
               ))}
             </div>
           </details>
+          <>
+            {loadinSp ? null : <Evolution pokeSpecie={pokeSpecie} />}
+          </>
           <div className="imgCont">
             <h3>Sprites</h3>
             <div className="img1">
