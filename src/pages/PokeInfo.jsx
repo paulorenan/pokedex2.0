@@ -49,6 +49,7 @@ function PokeInfo(props) {
     e.preventDefault()
     const {history} = props
     history.push(`/pokemon/${nameInput}`)
+    setNameInput('')
   }
 
   const renderPokemon = () => {
@@ -57,7 +58,7 @@ function PokeInfo(props) {
         <form className="pokeBusca" onSubmit={handleSearch}>
           {pokemon.id !== 1 && <Link to={`/pokemon/${pokemon.id - 1}`}> <button className="but1"><span>Anterior</span></button></Link>}
           <input type="text" placeholder="Digite o nome do pokemon" list="pokeName" onChange={ (e) => setNameInput(e.target.value)} />
-          <Link to={`/pokemon/${nameInput}`}><button className="searchButton">Pesquisar</button></Link>
+          <button className="searchButton" type="submit" disabled={nameInput === '' ? true : false}>Pesquisar</button>
           {pokemon.id !== 898 && <Link to={`/pokemon/${pokemon.id + 1}`}><button className="but2"><span>Próximo</span></button></Link>}
         <datalist id="pokeName">
           {pokemonsName.map(pokemon => (

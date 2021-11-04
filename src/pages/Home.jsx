@@ -49,7 +49,7 @@ function Home(props) {
       <Header />
       <form className="pokeBusca" onSubmit={handleSearch}>
         <input type="text" placeholder="Digite o nome do pokemon" list="pokeName" onChange={ (e) => setNameInput(e.target.value)} />
-        <Link to={`/pokemon/${nameInput}`}><button className="searchButton">Pesquisar</button></Link>
+        <Link to={`/pokemon/${nameInput}`}><button className="searchButton" disabled={nameInput === '' ? true : false}>Pesquisar</button></Link>
       <datalist id="pokeName">
         {pokemonsName.map(pokemon => (
           <option key={pokemon} value={pokemon} />
