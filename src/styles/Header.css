@@ -22,7 +22,7 @@
   border-radius: 50%;
   position: absolute;
   top: 90px;
-  left: calc(50% - 30px);
+  left: calc(50% - 32px);
   z-index: 1;
   background-color: white;
 }
