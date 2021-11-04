@@ -13,7 +13,6 @@ function Evolution(props) {
       setLoading(true)
       const evolution = await getPoke(pokeSpecie.evolution_chain.url)
       setEvolution(evolution.chain)
-      console.log(evolution.chain);
       setLoading(false)
     }
     fetchData()
@@ -30,7 +29,7 @@ function Evolution(props) {
               <div className="ev1">
                 <Pokemon pokemon={evolution.species.name}/>
                 {evolution.evolves_to.map(evolution => (
-                  <div key={evolution.species.name}>
+                  <div key={evolution.species.name} className="ev3">
                   <Pokemon pokemon={evolution.species.name}/>
                   {evolution.evolves_to.length > 0 &&
                     <>

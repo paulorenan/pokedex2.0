@@ -27,9 +27,11 @@ function Pokemon(props) {
         <Link to={`/pokemon/${pokeInfo.id}`} className="ev2">
           <h1>{capitalize(pokeInfo.name)}</h1>
           <img src={pokeInfo.sprites.other["official-artwork"].front_default !== null ? pokeInfo.sprites.other["official-artwork"].front_default : pokeInfo.sprites.front_default} alt="pokemon" />
+          <div className="pokClass">
           {pokeInfo.types.map(type => (
               <span key={type.type.name} className={`${type.type.name} tipo`}>{capitalize(type.type.name)}</span>
             ))}
+          </div>
         </Link>
       }
     </>

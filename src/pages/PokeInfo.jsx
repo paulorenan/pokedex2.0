@@ -48,7 +48,6 @@ function PokeInfo(props) {
       setLoadingSp(true)
       const pokeSpecie = await getPoke(pokemon.species.url)
       setPokeSpecie(pokeSpecie)
-      console.log(pokeSpecie);
       setLoadingSp(false)
     }
     if (loading === false) {

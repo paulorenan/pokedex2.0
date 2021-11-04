@@ -34,3 +34,15 @@
 .ev2 img {
   width: 150px;
 }
+
+.ev3 {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  color: black;
+  text-decoration: none;
+}
+
+.pokClass {
+  display: flex;
+}
