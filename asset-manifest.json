@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/pokedex2.0/static/css/main.a9e060f6.chunk.css",
-    "main.js": "/pokedex2.0/static/js/main.513a2998.chunk.js",
-    "main.js.map": "/pokedex2.0/static/js/main.513a2998.chunk.js.map",
-    "runtime-main.js": "/pokedex2.0/static/js/runtime-main.18942e29.js",
-    "runtime-main.js.map": "/pokedex2.0/static/js/runtime-main.18942e29.js.map",
-    "static/js/2.01993337.chunk.js": "/pokedex2.0/static/js/2.01993337.chunk.js",
-    "static/js/2.01993337.chunk.js.map": "/pokedex2.0/static/js/2.01993337.chunk.js.map",
-    "static/js/3.7ced26bd.chunk.js": "/pokedex2.0/static/js/3.7ced26bd.chunk.js",
-    "static/js/3.7ced26bd.chunk.js.map": "/pokedex2.0/static/js/3.7ced26bd.chunk.js.map",
+    "main.css": "/pokedex2.0/static/css/main.b32fbb29.chunk.css",
+    "main.js": "/pokedex2.0/static/js/main.ddbc7980.chunk.js",
+    "main.js.map": "/pokedex2.0/static/js/main.ddbc7980.chunk.js.map",
+    "runtime-main.js": "/pokedex2.0/static/js/runtime-main.842b547b.js",
+    "runtime-main.js.map": "/pokedex2.0/static/js/runtime-main.842b547b.js.map",
+    "static/js/2.57c4ea64.chunk.js": "/pokedex2.0/static/js/2.57c4ea64.chunk.js",
+    "static/js/2.57c4ea64.chunk.js.map": "/pokedex2.0/static/js/2.57c4ea64.chunk.js.map",
+    "static/js/3.16a6db43.chunk.js": "/pokedex2.0/static/js/3.16a6db43.chunk.js",
+    "static/js/3.16a6db43.chunk.js.map": "/pokedex2.0/static/js/3.16a6db43.chunk.js.map",
     "index.html": "/pokedex2.0/index.html",
-    "static/css/main.a9e060f6.chunk.css.map": "/pokedex2.0/static/css/main.a9e060f6.chunk.css.map",
-    "static/js/2.01993337.chunk.js.LICENSE.txt": "/pokedex2.0/static/js/2.01993337.chunk.js.LICENSE.txt",
+    "static/css/main.b32fbb29.chunk.css.map": "/pokedex2.0/static/css/main.b32fbb29.chunk.css.map",
+    "static/js/2.57c4ea64.chunk.js.LICENSE.txt": "/pokedex2.0/static/js/2.57c4ea64.chunk.js.LICENSE.txt",
     "static/media/pikachu.a8b7afca.jpg": "/pokedex2.0/static/media/pikachu.a8b7afca.jpg",
     "static/media/pokebola.544d44c8.gif": "/pokedex2.0/static/media/pokebola.544d44c8.gif"
   },
   "entrypoints": [
-    "static/js/runtime-main.18942e29.js",
-    "static/js/2.01993337.chunk.js",
-    "static/css/main.a9e060f6.chunk.css",
-    "static/js/main.513a2998.chunk.js"
+    "static/js/runtime-main.842b547b.js",
+    "static/js/2.57c4ea64.chunk.js",
+    "static/css/main.b32fbb29.chunk.css",
+    "static/js/main.ddbc7980.chunk.js"
   ]
 }
