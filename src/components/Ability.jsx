@@ -25,9 +25,12 @@ function Ability(props) {
   }
 
   function filtrarAbilities(abilities) {
-    const array = abilities.effect_entries
-    const arrayFiltrado = array.filter((item) => item.language.name === 'en')
-    return arrayFiltrado[0].short_effect
+    if (abilities.effect_entries.length > 0) {
+    const array = abilities.effect_entries;
+    const arrayFiltrado = array.filter((item) => item.language.name === 'en');
+    return arrayFiltrado[0].short_effect;
+    }
+    return abilities.flavor_text_entries[0].flavor_text;
   }
 
   return (
