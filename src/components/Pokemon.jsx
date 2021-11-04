@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import { Link } from 'react-router-dom'
+import pokebola from '../styles/pokebola.gif'
 
 function Pokemon(props) {
   const { pokemon } = props
@@ -23,7 +24,7 @@ function Pokemon(props) {
 
   return (
     <>
-      {loading ? null : 
+      {loading ? <img src={pokebola} alt="loading" /> : 
         <Link to={`/pokemon/${pokeInfo.id}`} className="ev2">
           <h1>{capitalize(pokeInfo.name)}</h1>
           <img src={pokeInfo.sprites.other["official-artwork"].front_default !== null ? pokeInfo.sprites.other["official-artwork"].front_default : pokeInfo.sprites.front_default} alt="pokemon" />

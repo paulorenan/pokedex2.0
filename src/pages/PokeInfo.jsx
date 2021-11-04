@@ -8,6 +8,7 @@ import Loading from '../components/Loading'
 import Evolution from '../components/Evolution'
 import PokeImg from '../components/PokeImg'
 import Stats from '../components/Stats'
+import pokebola from '../styles/pokebola.gif'
 import '../styles/PokeInfo.css'
 
 function PokeInfo(props) {
@@ -111,7 +112,7 @@ function PokeInfo(props) {
             </div>
           </details>
           <>
-            {loadinSp ? null : <Evolution pokeSpecie={pokeSpecie} />}
+            {loadinSp ? <img src={pokebola} alt="loading" /> : <Evolution pokeSpecie={pokeSpecie} />}
           </>
           <PokeImg pokemon={pokemon} />
         </div>

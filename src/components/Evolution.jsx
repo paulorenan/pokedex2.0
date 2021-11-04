@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import {getPoke} from '../services/pokeapi.js'
 import Pokemon from './Pokemon.jsx'
 import '../styles/Evolution.css'
+import pokebola from '../styles/pokebola.gif'
 
 function Evolution(props) {
   const {pokeSpecie} = props
@@ -21,7 +22,7 @@ function Evolution(props) {
 
   return (
     <>
-      {loading ? null : 
+      {loading ? <img src={pokebola} alt="loading" /> : 
         <>
           {evolution.evolves_to.length > 0 && 
             <div className="evCont">
