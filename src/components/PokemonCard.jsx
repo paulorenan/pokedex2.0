@@ -19,11 +19,8 @@ function PokemonCard(props) {
     fetchData()
   }, [poke]);
 
-  function capitalize(string) {
-    const maiuscula = string.map((palavra)  => (
-      palavra.charAt(0).toUpperCase() + palavra.slice(1)
-      ))
-    return maiuscula.join(' ')
+  function capitalize(palavra) {
+    return palavra.charAt(0).toUpperCase() + palavra.slice(1)
   }
 
   const renderPokemon = () => {
@@ -33,13 +30,13 @@ function PokemonCard(props) {
           <img src={pokemon.sprites.other["official-artwork"].front_default !== null ? pokemon.sprites.other["official-artwork"].front_default : pokemon.sprites.front_default} alt="pokemon" />
         </div>
         <div className="infoCard">
-        <p>{capitalize(pokemon.name.split('-'))}</p>
+        <p>{capitalize(pokemon.name)}</p>
         <p>{`nº ${pokemon.id}`}</p>
         </div>
         <div className="typeCard">
           {pokemon.types.map((type) => (
             <div key={type.type.name} className={`${type.type.name} tipo`}>
-              <p>{capitalize(type.type.name.split("-"))}</p>
+              <p>{capitalize(type.type.name)}</p>
             </div>
           ))}
         </div>

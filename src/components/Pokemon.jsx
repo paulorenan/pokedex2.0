@@ -16,15 +16,19 @@ function Pokemon(props) {
     fetchData()
   }, [pokemon])
 
+  function capitalize(palavra) {
+    return palavra.charAt(0).toUpperCase() + palavra.slice(1)
+  }
+
   return (
-    <div>
+    <>
       {loading ? null : 
         <div>
-          <h1>{pokeInfo.name}</h1>
+          <h1>{capitalize(pokeInfo.name)}</h1>
           <img src={pokeInfo.sprites.front_default} alt={pokeInfo.name} />
         </div>
       }
-    </div>
+    </>
   )
 }
 
