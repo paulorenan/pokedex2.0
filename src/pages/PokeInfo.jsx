@@ -84,7 +84,7 @@ function PokeInfo(props) {
         <div className="pokemon-info">
           <div className="pokeName">
             <h1>{`Pokemon nº: ${pokemon.id}`}</h1>
-            <h2>{capitalize(pokemon.name)}</h2>
+            <h2>{capitalize(pokemon.species.name)}</h2>
           </div>
           <div>
             <img src={pokemon.sprites.other["official-artwork"].front_default !== null ? pokemon.sprites.other["official-artwork"].front_default : pokemon.sprites.front_default} alt="pokemon" className="pokImg"/>
