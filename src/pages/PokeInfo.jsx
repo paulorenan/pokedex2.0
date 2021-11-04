@@ -72,7 +72,7 @@ function PokeInfo(props) {
             <h2>{capitalize(pokemon.name.split('-'))}</h2>
           </div>
           <div>
-            <img src={pokemon.sprites.front_default} alt={pokemon.name} className="pokImg"/>
+            <img src={pokemon.sprites.other["official-artwork"].front_default !== null ? pokemon.sprites.other["official-artwork"].front_default : pokemon.sprites.front_default} alt="pokemon" className="pokImg"/>
           </div>
           <div>
             {pokemon.types.map(type => (
@@ -82,7 +82,7 @@ function PokeInfo(props) {
           <div className="statsAbility">
             <div className="ability">
               <h3>Habilidades</h3>
-              {pokemon.abilities.map(ability => (
+              {pokemon.id <= 10180 && pokemon.abilities.map(ability => (
                 <Ability key={ability.ability.name} ability={ability} />
               ))}
             </div>

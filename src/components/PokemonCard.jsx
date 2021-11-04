@@ -30,7 +30,7 @@ function PokemonCard(props) {
     return (
       <Link to={`/pokemon/${pokemon.id}`} className="cardContainer">
         <div className="imageCard">
-          <img src={pokemon.sprites.front_default} alt="pokemon" />
+          <img src={pokemon.sprites.other["official-artwork"].front_default !== null ? pokemon.sprites.other["official-artwork"].front_default : pokemon.sprites.front_default} alt="pokemon" />
         </div>
         <div className="infoCard">
         <p>{capitalize(pokemon.name.split('-'))}</p>

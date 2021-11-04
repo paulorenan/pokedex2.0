@@ -93,7 +93,7 @@ left: 0;
 }
 
 .pokImg {
-  width: 200px;
+  width: 300px;
 }
 
 .ability {
@@ -273,4 +273,8 @@ left: 0;
   width: 100%;
   margin-bottom: 20px;
   text-decoration: none;
+}
+
+.img2 img {
+  width: 200px;
 }
