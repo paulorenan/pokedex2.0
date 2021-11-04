@@ -227,7 +227,6 @@ left: 0;
   align-items: center;
   justify-content: space-around;
   margin: 20px;
-  width: 400px;
   border: black 1px solid;
 }
 
@@ -277,4 +276,8 @@ left: 0;
 
 .img2 img {
   width: 200px;
+}
+
+.img3 {
+  display: flex;
 }
