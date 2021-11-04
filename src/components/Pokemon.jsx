@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react'
+import { Link } from 'react-router-dom'
 
 function Pokemon(props) {
   const { pokemon } = props
@@ -23,10 +24,13 @@ function Pokemon(props) {
   return (
     <>
       {loading ? null : 
-        <div>
+        <Link to={`/pokemon/${pokeInfo.id}`} className="ev2">
           <h1>{capitalize(pokeInfo.name)}</h1>
-          <img src={pokeInfo.sprites.front_default} alt={pokeInfo.name} />
-        </div>
+          <img src={pokeInfo.sprites.other["official-artwork"].front_default !== null ? pokeInfo.sprites.other["official-artwork"].front_default : pokeInfo.sprites.front_default} alt="pokemon" />
+          {pokeInfo.types.map(type => (
+              <span key={type.type.name} className={`${type.type.name} tipo`}>{capitalize(type.type.name)}</span>
+            ))}
+        </Link>
       }
     </>
   )

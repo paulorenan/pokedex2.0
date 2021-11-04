@@ -1,0 +1,36 @@
+.evCont {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.ev1 {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.evCont h3 {
+  font-size: 2rem;
+  margin: 0;
+  padding: 10px;
+}
+
+.ev2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  border: black solid 1px;
+  padding: 10px;
+  color: black;
+  text-decoration: none;
+}
+
+.ev2 img {
+  width: 150px;
+}

@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import {getPoke} from '../services/pokeapi.js'
 import Pokemon from './Pokemon.jsx'
+import '../styles/Evolution.css'
 
 function Evolution(props) {
   const {pokeSpecie} = props
@@ -24,9 +25,9 @@ function Evolution(props) {
       {loading ? null : 
         <>
           {evolution.evolves_to.length > 0 && 
-            <div>
+            <div className="evCont">
               <h3>Evolution</h3>
-              <div>
+              <div className="ev1">
                 <Pokemon pokemon={evolution.species.name}/>
                 {evolution.evolves_to.map(evolution => (
                   <div key={evolution.species.name}>
