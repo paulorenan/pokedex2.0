@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import Header from '../components/Header'
 import Ability from '../components/Ability'
 import Moves from '../components/Moves'
+import Loading from '../components/Loading'
 import '../styles/PokeInfo.css'
 
 function PokeInfo(props) {
@@ -13,15 +14,21 @@ function PokeInfo(props) {
   const [nameInput, setNameInput] = useState('')
   const [click, setClick] = useState(true)
   const { match: { params: { id } } } = props
+  const { history } = props
 
   useEffect(() => {
     async function fetchData() {
+      setLoading(true)
+      try{
       const pokemon = await getPokeUrl(id)
       setPokemon(pokemon)
       setLoading(false)
+      } catch(err) {
+        history.push('/notfound')
+      }
     }
     fetchData()
-  }, [id])
+  }, [id, history])
 
   useEffect(() => {
     async function fetchData() {
@@ -201,7 +208,7 @@ function PokeInfo(props) {
   return (
     <div>
       <Header />
-      {loading ? <p>Loading...</p> : renderPokemon()}
+      {loading ? <Loading /> : renderPokemon()}
       <div className="buttonCont">
           <Link to={'/'} className="proxButton"><button>Voltar ao inicio</button></Link>
         </div>

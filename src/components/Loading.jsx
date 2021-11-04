@@ -1,9 +1,12 @@
 import React from 'react'
 import pokebola from '../styles/pokebola.gif'
+import '../styles/Loading.css'
 
 function Loading() {
   return (
-    <img src={pokebola} alt="loading" />
+    <div className="loadImg">
+      <img src={pokebola} alt="loading" />
+    </div>
   )
 }
 

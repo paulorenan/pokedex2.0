@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import { getPoke } from '../services/pokeapi.js'
-import Loading from './Loading.jsx'
+import pokebola from '../styles/pokebola.gif'
 
 function Ability(props) {
   const { ability } = props.ability
@@ -32,7 +32,7 @@ function Ability(props) {
 
   return (
     <div>
-      {loading ? <Loading /> : 
+      {loading ? <img src={pokebola} alt="loading" /> : 
       <details>
         <summary>{capitalize(ability.name.split('-'))}</summary>
         <p>{filtrarAbilities(pokeAbility)}</p>

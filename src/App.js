@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Home from './pages/Home';
 import PokeInfo from './pages/PokeInfo';
+import NotFound from './pages/NotFound';
 import './App.css';
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/pokemon/:id" component={PokeInfo} />
+        <Route component={NotFound} />
       </Switch>
     </BrowserRouter>
   );

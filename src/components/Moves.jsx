@@ -1,6 +1,6 @@
 import React, { useEffect, useState} from 'react'
 import { getPoke } from '../services/pokeapi.js'
-import Loading from './Loading.jsx'
+import pokebola from '../styles/pokebola.gif'
 
 function Moves(props) {
   const { moves } = props
@@ -27,7 +27,7 @@ function Moves(props) {
 
   return (
     <div>
-      {loading ? <Loading /> :
+      {loading ? <img src={pokebola} alt="loading" /> :
       <details className="cont4">
         <summary onClick={ () => setClick(!click)} className={click ? 'caso1' : 'caso2'}>{capitalize(moves.move.name.split('-'))}</summary>
         <div className="cont5">

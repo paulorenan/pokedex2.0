@@ -20,7 +20,6 @@ function PokemonCard(props) {
   }, [poke]);
 
   function capitalize(string) {
-    console.log(string);
     const maiuscula = string.map((palavra)  => (
       palavra.charAt(0).toUpperCase() + palavra.slice(1)
       ))
@@ -28,7 +27,6 @@ function PokemonCard(props) {
   }
 
   const renderPokemon = () => {
-    console.log(pokemon);
     return (
       <Link to={`/pokemon/${pokemon.id}`} className="cardContainer">
         <div className="imageCard">
