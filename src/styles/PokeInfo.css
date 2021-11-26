@@ -305,4 +305,65 @@ left: 0;
   .searchButton {
     order: 1;
   }
+  .statsAbility {
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .ability, .stats {
+    margin: 0;
+  }
+  
+  .ability {
+    width: 150px;
+    margin-right: 5.5%;
+    margin-top: 25px;
+    margin-bottom: 20px;
+  }
+
+  .ability h3, .ability div{
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .statsAbility {
+    margin-bottom: 20px;
+  }
+
+  .cont2 {
+    padding: 0;
+  }
+
+  .cont4 {
+    width: 150px;
+  }
+
+  .imgCont {
+    width: 90%;
+    margin: 0;
+    margin-top: 20px;
+  }
+
+  .img1 {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .img2 {
+    width: 49.3869%;
+  }
+
+  .img2 img {
+    width: 140px;
+  }  
+  
+  .img3 {
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+
 }

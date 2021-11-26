@@ -8,7 +8,7 @@ function PokeImg(props) {
       <div className="img1">
         <div className="img3">
           <div className="img2">
-            <div className="nomePok">
+            <div div className="nomePok">
               <p className="lado">Frente</p>
             </div>
             <div>
