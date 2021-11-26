@@ -31,14 +31,14 @@ function Evolution(props) {
                 <Pokemon pokemon={evolution.species.name}/>
                 {evolution.evolves_to.map(evolution => (
                   <div key={evolution.species.name} className="ev3">
-                  <Pokemon pokemon={evolution.species.name}/>
-                  {evolution.evolves_to.length > 0 &&
-                    <>
-                      {evolution.evolves_to.map((ev) => (
-                        <Pokemon pokemon={ev.species.name} key={ev.species.name}/>
-                      ))}
-                    </>
-                  }
+                    <Pokemon pokemon={evolution.species.name}/>
+                    {evolution.evolves_to.length > 0 &&
+                      <>
+                        {evolution.evolves_to.map((ev) => (
+                          <Pokemon pokemon={ev.species.name} key={ev.species.name}/>
+                        ))}
+                      </>
+                    }
                   </div>
                 ))}
               </div>

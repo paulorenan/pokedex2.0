@@ -366,4 +366,21 @@ left: 0;
     justify-content: center;
   }
 
+  .ev2 h1 {
+    font-size: 1.7rem;
+  }
+
+  .ev2 img {
+    width: 110px;
+  }
+
+  .ev2 {
+    width: 165px;
+  }
+
+  .ev3 {
+    align-items: center;
+    justify-content: center;
+  }
+
 }

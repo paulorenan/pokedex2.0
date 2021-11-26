@@ -16,3 +16,9 @@
 .pikachu {
   width: 500px;
 }
+
+@media screen and (max-width: 768px){
+  .pikachu {
+    width: 300px;
+  }
+}
