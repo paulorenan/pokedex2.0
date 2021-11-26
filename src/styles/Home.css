@@ -77,3 +77,24 @@
   border: 2px solid red;
   border-radius: 10px;
 }
+
+@media screen and (max-width: 768px){
+  .pokeCard {
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  .searchButton {
+    margin: 0;
+  }
+
+  .pokeBusca {
+    align-items: center;
+    justify-content: space-evenly;
+    margin-bottom: 15px;
+  }
+
+  .pokeBusca input{
+    margin: 0;
+  }
+}
