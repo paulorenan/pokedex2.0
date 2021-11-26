@@ -281,3 +281,28 @@ left: 0;
 .img3 {
   display: flex;
 }
+
+@media screen and (max-width: 768px){
+  .pokeBusca {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .but1 {
+    order: 3;
+    margin-top: 15px;
+  }
+
+  .but2 {
+    order: 4;
+    margin-top: 15px;
+  }
+
+  .pokeBusca input {
+    order: 0;
+  }
+
+  .searchButton {
+    order: 1;
+  }
+}
