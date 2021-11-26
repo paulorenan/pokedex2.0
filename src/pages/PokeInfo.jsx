@@ -63,7 +63,7 @@ function PokeInfo(props) {
   const handleSearch = async (e) => {
     e.preventDefault()
     const {history} = props
-    history.push(`/pokemon/${nameInput}`)
+    history.push(`/pokemon/${nameInput.toLowerCase()}`)
     setNameInput('')
   }
 
@@ -83,7 +83,7 @@ function PokeInfo(props) {
       <div>
         <form className="pokeBusca" onSubmit={handleSearch}>
           {pokemon.id !== 1 && <button className="but1" onClick={antPoke} type="button"><span>Anterior</span></button>}
-          <input className="buscaInput" type="text" placeholder="Digite o nome do pokemon" list="pokeName" onChange={ (e) => setNameInput(e.target.value)} />
+          <input className="buscaInput" type="text" placeholder="Digite o nome do pokemon" list="pokeName" onChange={ (e) => setNameInput((e.target.value).toLowerCase())} />
           <button className="searchButton" type="submit" disabled={nameInput === '' ? true : false}>Pesquisar</button>
           {pokemon.id !== 898 && <button className="but2" onClick={proxPoke} type="button"><span>Próximo</span></button>}
         <datalist id="pokeName">

@@ -41,14 +41,14 @@ function Home(props) {
   const handleSearch = async (e) => {
     e.preventDefault()
     const {history} = props
-    history.push(`/pokemon/${nameInput}`)
+    history.push(`/pokemon/${nameInput.toLowerCase()}`)
   }
 
   return (
     <div className="home">
       <Header />
       <form className="pokeBusca" onSubmit={handleSearch}>
-        <input type="text" placeholder="Digite o nome do pokemon" list="pokeName" onChange={ (e) => setNameInput(e.target.value)} />
+        <input type="text" placeholder="Digite o nome do pokemon" list="pokeName" onChange={ (e) => setNameInput((e.target.value).toLowerCase())} />
         <Link to={`/pokemon/${nameInput}`}><button className="searchButton" disabled={nameInput === '' ? true : false}>Pesquisar</button></Link>
       <datalist id="pokeName">
         {pokemonsName.map(pokemon => (
