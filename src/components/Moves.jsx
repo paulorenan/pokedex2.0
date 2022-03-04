@@ -31,7 +31,6 @@ function Moves(props) {
       <details className="cont4">
         <summary onClick={ () => setClick(!click)} className={click ? 'caso1' : 'caso2'}>{capitalize(moves.move.name.split('-'))}</summary>
         <div className="cont5">
-          {console.log(movesList)}
           { movesList.effect_entries[0]
             ? <p>{movesList.effect_entries[0].short_effect}</p>
             : <p>{(movesList.flavor_text_entries.find((lan) => lan.language.name === "en")).flavor_text}</p>
