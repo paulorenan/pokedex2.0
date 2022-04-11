@@ -5,7 +5,7 @@ Website de uma pokedex feito com [PokeAPI](https://pokeapi.co/)
 
 
 ## WebSite
-[Pokedex2.0](https://pokedex2-0.herokuapp.com/)
+[Pokedex2.0](https://pokedex2-0.vercel.app/)
 
 ## Stack utilizada
 
