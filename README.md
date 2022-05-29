@@ -9,9 +9,7 @@ Website de uma pokedex feito com [PokeAPI](https://pokeapi.co/)
 
 ## Stack utilizada
 
-**Front-end:** ReactJs, Context API
-
-**Back-end:** NodeJs
+ReactJs, React-Hooks, React-Router, CSS, Fetch
 
 
 ## Screenshots
